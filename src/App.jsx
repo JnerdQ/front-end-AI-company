@@ -10,9 +10,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <CssBaseline />
-     <LoginPage />
-     {/* <HomePage /> */}
-    {/*  <EmployeeForm />  */}
+     {/* <LoginPage /> */}
+      <HomePage /> 
+      {/* <EmployeeForm />   */}
   </ThemeProvider>
  
   )

@@ -7,8 +7,6 @@ import {
   Typography,
   Box,
   CssBaseline,
-  useTheme,
-  useMediaQuery,
 } from '@mui/material';
 
 const LoginPage = () => {
@@ -21,8 +19,6 @@ const LoginPage = () => {
     console.log('Password:', password);
   };
 
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Container component="main" maxWidth="xs">

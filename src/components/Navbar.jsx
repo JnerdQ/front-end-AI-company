@@ -6,7 +6,7 @@ const Navbar = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            MyApp
+            Factored AI
           </Typography>
           <Button color="inherit" to="/login">
             Login

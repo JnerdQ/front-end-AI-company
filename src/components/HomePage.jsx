@@ -7,11 +7,17 @@ const HomePage = () => {
       <Navbar />
       <Container maxWidth="md">
         <Box sx={{ textAlign: 'center', mt: 8 }}>
-          <Typography variant="h3" component="h1" gutterBottom>
-            Welcome to Factored
-          </Typography>
-          <Typography variant="h6" component="p" gutterBottom>
-            This is a simple homepage created with Material-UI.
+        <img
+            src="src/assets/factored.png"
+            alt="factored icon"
+            style={{
+              width: '25%',
+              height: '25%',
+              objectFit: 'contain',
+            }}
+          />
+          <Typography variant="h3" gutterBottom  m={5}>
+           HomePage
           </Typography>
           <Button variant="contained" color="primary"  to="/login">
             Go to Login
