@@ -9,7 +9,7 @@ const Navbar = () => {
             Factored AI
           </Typography>
           <Button color="inherit" to="/login">
-            Login
+            ABOUT US
           </Button>
         </Toolbar>
       </AppBar>

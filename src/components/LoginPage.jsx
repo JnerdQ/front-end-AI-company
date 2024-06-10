@@ -1,4 +1,3 @@
-// src/components/LoginPage.js
 import { useState } from 'react';
 import {
   Container,
@@ -7,18 +6,35 @@ import {
   Typography,
   Box,
   CssBaseline,
+  Alert
 } from '@mui/material';
+import { authenticate } from '../api/EmployeeService'
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate(); 
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
+    setError(null); 
 
+    try {
+        const response = await authenticate({ email, password });
+
+        if(response){
+            console.log('Login successful', response);
+            navigate('/employee')
+        }
+
+      } catch (err) {
+        console.error('Error during authentication', err);
+        console.log('Login failed. Please check your credentials and try again.');
+      }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -31,16 +47,15 @@ const LoginPage = () => {
           alignItems: 'center',
         }}
       >
-       
-          <img
-            src="src/assets/factored.png"
-            alt="factored icon"
-            style={{
-              width: '50%',
-              height: '50%',
-              objectFit: 'contain',
-            }}
-          />
+        <img
+          src="src/assets/factored.png"
+          alt="factored icon"
+          style={{
+            width: '50%',
+            height: '50%',
+            objectFit: 'contain',
+          }}
+        />
         <Typography component="h1" variant="h5">
           Sign In
         </Typography>
@@ -81,6 +96,11 @@ const LoginPage = () => {
             }}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {error && (
+            <Alert severity="error" sx={{ mt: 2 }}>
+              {error}
+            </Alert>
+          )}
           <Button
             type="submit"
             fullWidth
