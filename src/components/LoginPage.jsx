@@ -21,7 +21,7 @@ const LoginPage = () => {
       if (response) {
         console.log('Login successful', response);
         localStorage.setItem('user', JSON.stringify(response.employee)); // Almacena los datos del usuario en localStorage
-        setSuccessMessage(response.message); // Establece el mensaje de éxito
+        setSuccessMessage(response.message); 
         navigate('/employee');
       }
     } catch (err) {
