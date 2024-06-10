@@ -15,7 +15,7 @@ const HomePage = () => {
       <Container maxWidth="md">
         <Box sx={{ textAlign: 'center', mt: 8 }}>
           <img
-            src="src/assets/factored.png"
+            src="/assets/factored.png"
             alt="factored icon"
             style={{
               width: '25%',

@@ -42,7 +42,7 @@ const LoginPage = () => {
         }}
       >
         <img
-          src="src/assets/factored.png"
+          src="/assets/factored.png"
           alt="factored icon"
           style={{
             width: '50%',
