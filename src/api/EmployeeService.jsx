@@ -10,7 +10,8 @@ export const createEmployee = async (employeeData) => {
   return response.data;
 };
 
+
 export const authenticate = async (loginData) => {
   const response = await axios.post('/employee/authenticate', loginData);
   return response.data;
-}
+};

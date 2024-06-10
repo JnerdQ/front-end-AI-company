@@ -1,39 +1,33 @@
 import { useState } from 'react';
-import {
-  Container,
-  TextField,
-  Button,
-  Typography,
-  Box,
-  CssBaseline,
-  Alert
-} from '@mui/material';
-import { authenticate } from '../api/EmployeeService'
+import { Container, TextField, Button, Typography, Box, CssBaseline, Alert } from '@mui/material';
+import { authenticate } from '../api/EmployeeService';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   const navigate = useNavigate(); 
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    setError(null); 
+    setError(null);
+    setSuccessMessage(null);
 
     try {
-        const response = await authenticate({ email, password });
+      const response = await authenticate({ email, password });
 
-        if(response){
-            console.log('Login successful', response);
-            navigate('/employee')
-        }
-
-      } catch (err) {
-        console.error('Error during authentication', err);
-        console.log('Login failed. Please check your credentials and try again.');
+      if (response) {
+        console.log('Login successful', response);
+        localStorage.setItem('user', JSON.stringify(response.employee)); // Almacena los datos del usuario en localStorage
+        setSuccessMessage(response.message); // Establece el mensaje de éxito
+        navigate('/employee');
       }
+    } catch (err) {
+      console.error('Error during authentication', err);
+      setError('Login failed. Please check your credentials and try again.');
+    }
   };
 
   return (
@@ -99,6 +93,11 @@ const LoginPage = () => {
           {error && (
             <Alert severity="error" sx={{ mt: 2 }}>
               {error}
+            </Alert>
+          )}
+          {successMessage && (
+            <Alert severity="success" sx={{ mt: 2 }}>
+              {successMessage}
             </Alert>
           )}
           <Button
