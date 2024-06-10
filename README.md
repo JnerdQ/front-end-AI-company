@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Welcome to the Frontend AI Company project! This project is the user interface part of our AI company system. It is built using React, a popular JavaScript library for building user interfaces.
+Welcome to the Frontend AI Company project! This project is the user interface for an AI company system. It is built using React, a popular JavaScript library for building user interfaces.
 
 ## Prerequisites
 
