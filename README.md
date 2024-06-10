@@ -50,10 +50,10 @@ npm install
 3. Start the project:
 
 ```sh
-npm start
+npm run dev
 ```
 
-4. After running the above commands, your web browser should automatically open and display the project. If it doesn't, you can manually open your browser and go to [http://localhost:3000](http://localhost:3000).
+4. After running the above commands, your web browser should automatically open and display the project. If it doesn't, you can manually open your browser and go to [http://localhost:5173/](http://localhost:5173/).
 
 ## Conclusion
 
